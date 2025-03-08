@@ -1,4 +1,4 @@
-# Godot Toy4 src
+# Godot Toy4
 
 ---------
 ### High-level Requirements
