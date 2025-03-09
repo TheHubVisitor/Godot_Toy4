@@ -18,13 +18,17 @@ animations = [{
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_en32i")
 
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(2, 2)
+limit_left = -600
+limit_top = -750
+limit_right = 600
+limit_bottom = 500
+editor_draw_limits = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_ygune")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(-576, -324)
-offset = Vector2(576, 324)
-zoom = Vector2(2, 2)
+debug_color = Color(0.784151, 0.371745, 0.588189, 0.42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_77ikk")
