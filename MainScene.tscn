@@ -549,7 +549,7 @@ tile_map_data = PackedByteArray("AAD9//7/AAAAAAAAAAD+//7/AAACAAIAAAD///7/AAADAAE
 tile_set = SubResource("TileSet_aa7i7")
 y_sort_origin = -1
 
-[node name="player" parent="." instance=ExtResource("2_b4jub")]
+[node name="Player" parent="." instance=ExtResource("2_b4jub")]
 z_index = 1
 position = Vector2(-20, 20)
 
