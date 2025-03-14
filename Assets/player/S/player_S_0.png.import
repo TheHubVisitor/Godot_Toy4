@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1qdntb8oypud"
-path="res://.godot/imported/survivalgame-terrian-defult.png-28dd1a2ae031f2c5babcd7c0e79f76ef.ctex"
+uid="uid://b6rss2ai01csr"
+path="res://.godot/imported/player_S_0.png-5e63054393ea5df84c99d1160c8e7abc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets /survivalgame-terrian-defult.png"
-dest_files=["res://.godot/imported/survivalgame-terrian-defult.png-28dd1a2ae031f2c5babcd7c0e79f76ef.ctex"]
+source_file="res://Assets/player/S/player_S_0.png"
+dest_files=["res://.godot/imported/player_S_0.png-5e63054393ea5df84c99d1160c8e7abc.ctex"]
 
 [params]
 

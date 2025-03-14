@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fhhriiyvrfld"
-path="res://.godot/imported/coffee_box.png-5d4d36e15dd42fe9836518b5440366ce.ctex"
+uid="uid://cc8njfca4kqub"
+path="res://.godot/imported/player_NE_0.png-450b699f1fdb2914e2192b907da16333.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets /items/coffee_box.png"
-dest_files=["res://.godot/imported/coffee_box.png-5d4d36e15dd42fe9836518b5440366ce.ctex"]
+source_file="res://Assets/player/NE/player_NE_0.png"
+dest_files=["res://.godot/imported/player_NE_0.png-450b699f1fdb2914e2192b907da16333.ctex"]
 
 [params]
 

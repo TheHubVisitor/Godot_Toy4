@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kbg3rrkv5ng5"
-path="res://.godot/imported/survivalgame-terrian-cliffs.png-47048dede684f02cd699e994262e708f.ctex"
+uid="uid://fb7lhnp8wvnt"
+path="res://.godot/imported/player_NE_2.png-a3bb331f9d627e3133bbb70c6cc9d290.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets /survivalgame-terrian-cliffs.png"
-dest_files=["res://.godot/imported/survivalgame-terrian-cliffs.png-47048dede684f02cd699e994262e708f.ctex"]
+source_file="res://Assets/player/NE/player_NE_2.png"
+dest_files=["res://.godot/imported/player_NE_2.png-a3bb331f9d627e3133bbb70c6cc9d290.ctex"]
 
 [params]
 
