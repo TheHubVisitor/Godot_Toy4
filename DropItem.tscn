@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1wlqmwk8yb4d"]
 
 [ext_resource type="Script" path="res://drop_item.gd" id="1_yj0wi"]
-[ext_resource type="Texture2D" uid="uid://cyjnhnukahqwm" path="res://Assets/items/health_box.png" id="2_hbgko"]
+[ext_resource type="Texture2D" uid="uid://cyjnhnukahqwm" path="res://Assets/Items/health_box.png" id="2_hbgko"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owef6"]
 size = Vector2(36, 36)

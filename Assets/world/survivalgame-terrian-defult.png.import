@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1qdntb8oypud"
-path="res://.godot/imported/survivalgame-terrian-defult.png-1d5d9e47201dc76b610aa32d5df9de11.ctex"
+path="res://.godot/imported/survivalgame-terrian-defult.png-da187a31372aee1ec350f343e64b6339.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/world/survivalgame-terrian-defult.png"
-dest_files=["res://.godot/imported/survivalgame-terrian-defult.png-1d5d9e47201dc76b610aa32d5df9de11.ctex"]
+source_file="res://Assets/World/survivalgame-terrian-defult.png"
+dest_files=["res://.godot/imported/survivalgame-terrian-defult.png-da187a31372aee1ec350f343e64b6339.ctex"]
 
 [params]
 

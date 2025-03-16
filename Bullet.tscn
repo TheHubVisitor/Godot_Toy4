@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu7dbyiwoeck8"]
+
+[ext_resource type="Texture2D" uid="uid://bse2cs7e0ji7i" path="res://assets/bullet.png" id="1_cbfgb"]
+[ext_resource type="Script" path="res://bullet.gd" id="1_clehb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g8vl6"]
+radius = 5.09902
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_clehb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cbfgb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g8vl6")
+debug_color = Color(0.925001, 0.233565, 0.369248, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

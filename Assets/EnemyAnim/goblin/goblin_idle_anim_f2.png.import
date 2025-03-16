@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6756i3hptwf3"
-path="res://.godot/imported/gun_box.png-265abe98680f60a2346e4f78d4bed65c.ctex"
+uid="uid://bkhka1bymkk4f"
+path="res://.godot/imported/goblin_idle_anim_f2.png-1bf946b5e5427cc6c083749965bd34d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/gun_box.png"
-dest_files=["res://.godot/imported/gun_box.png-265abe98680f60a2346e4f78d4bed65c.ctex"]
+source_file="res://Assets/EnemyAnim/goblin/goblin_idle_anim_f2.png"
+dest_files=["res://.godot/imported/goblin_idle_anim_f2.png-1bf946b5e5427cc6c083749965bd34d7.ctex"]
 
 [params]
 

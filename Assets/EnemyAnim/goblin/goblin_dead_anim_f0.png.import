@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6756i3hptwf3"
-path="res://.godot/imported/gun_box.png-265abe98680f60a2346e4f78d4bed65c.ctex"
+uid="uid://dgt30q1c0t68h"
+path="res://.godot/imported/goblin_dead_anim_f0.png-43eecd7b149565111c219882e08a3f26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/gun_box.png"
-dest_files=["res://.godot/imported/gun_box.png-265abe98680f60a2346e4f78d4bed65c.ctex"]
+source_file="res://Assets/EnemyAnim/goblin/goblin_dead_anim_f0.png"
+dest_files=["res://.godot/imported/goblin_dead_anim_f0.png-43eecd7b149565111c219882e08a3f26.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6756i3hptwf3"
-path="res://.godot/imported/gun_box.png-265abe98680f60a2346e4f78d4bed65c.ctex"
+uid="uid://brsojatr1lk"
+path="res://.godot/imported/player_S_2.png-23b71a29e3c74ab37c4873503253c11f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/gun_box.png"
-dest_files=["res://.godot/imported/gun_box.png-265abe98680f60a2346e4f78d4bed65c.ctex"]
+source_file="res://Assets/PlayerAnim/S/player_S_2.png"
+dest_files=["res://.godot/imported/player_S_2.png-23b71a29e3c74ab37c4873503253c11f.ctex"]
 
 [params]
 

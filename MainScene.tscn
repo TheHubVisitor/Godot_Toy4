@@ -1,12 +1,14 @@
-[gd_scene load_steps=18 format=4 uid="uid://bq010yb7vry6x"]
+[gd_scene load_steps=32 format=4 uid="uid://bq010yb7vry6x"]
 
 [ext_resource type="Script" path="res://camera_2d.gd" id="1_wj1sa"]
-[ext_resource type="Texture2D" uid="uid://1qdntb8oypud" path="res://Assets/world/survivalgame-terrian-defult.png" id="2_a5ale"]
+[ext_resource type="Texture2D" uid="uid://1qdntb8oypud" path="res://Assets/World/survivalgame-terrian-defult.png" id="2_a5ale"]
 [ext_resource type="PackedScene" uid="uid://b5ac8l4m8jqwr" path="res://Player.tscn" id="2_b4jub"]
-[ext_resource type="Texture2D" uid="uid://kbg3rrkv5ng5" path="res://Assets/world/survivalgame-terrian-cliffs.png" id="3_mtaiq"]
-[ext_resource type="Texture2D" uid="uid://cfb6t3ayci35f" path="res://Assets/world/survivalgame-terrian-water.png" id="4_c34ba"]
-[ext_resource type="Texture2D" uid="uid://dn3vid282trcg" path="res://Assets/world/survivalgame-trees.png" id="5_8w8xt"]
+[ext_resource type="Texture2D" uid="uid://kbg3rrkv5ng5" path="res://Assets/World/survivalgame-terrian-cliffs.png" id="3_mtaiq"]
+[ext_resource type="Texture2D" uid="uid://cfb6t3ayci35f" path="res://Assets/World/survivalgame-terrian-water.png" id="4_c34ba"]
+[ext_resource type="Texture2D" uid="uid://dn3vid282trcg" path="res://Assets/World/survivalgame-trees.png" id="5_8w8xt"]
 [ext_resource type="PackedScene" uid="uid://bve0tuaq6bajh" path="res://GameUI.tscn" id="6_8mhjd"]
+[ext_resource type="Script" path="res://bullet_manager.gd" id="7_h7h3p"]
+[ext_resource type="PackedScene" uid="uid://bu7dbyiwoeck8" path="res://Bullet.tscn" id="8_4pk8e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ee63s"]
 texture = ExtResource("3_mtaiq")
@@ -702,7 +704,6 @@ editor_draw_limits = true
 script = ExtResource("1_wj1sa")
 
 [node name="Tress" type="TileMapLayer" parent="."]
-
 tile_map_data = PackedByteArray("AAD8/wEAAwAIAAAAAAACAP7/AwAIAAAAAAD+////AwAIAAEAAAAAAPj/AwAIAAEAAAAEAPn/AwAIAAIAAAAFAPb/AwAIAAIAAAAAAPT/AwAIAAIAAAD5//X/AwAIAAIAAAD5//r/AwAIAAIAAAD3//v/AwAIAAIAAAD8//v/AwAIAAIAAAD8//f/AwAIAAIAAAD0/+7/AwAFAAAAAAD0/+//AwAFAAEAAAD0//D/AwAFAAEAAAD0//H/AwAFAAEAAAD0//L/AwAFAAEAAAD0//P/AwAFAAEAAAD0//T/AwAFAAEAAAD0//X/AwAFAAEAAAD0//b/AwAFAAEAAAD0//f/AwAFAAEAAAD0//j/AwAFAAEAAAD0//n/AwAFAAEAAAD0//r/AwAFAAEAAAD0//v/AwAFAAEAAAD0//z/AwAFAAEAAAD0/wgAAwAFAAEAAAD0/wcAAwAFAAEAAAD0/wYAAwAFAAEAAAD0/wUAAwAFAAEAAAD0/wQAAwAFAAEAAAD0/wMAAwAFAAEAAAD0/wIAAwAFAAEAAAD0/wEAAwAFAAEAAAD0/wAAAwAFAAEAAAD0////AwAFAAEAAAD0//7/AwAFAAEAAAD0//3/AwAFAAEAAADz/wgAAwAEAAEAAADz/wcAAwAEAAEAAADz/wYAAwAEAAEAAADz/wUAAwAEAAEAAADz/wQAAwAEAAEAAADz/wMAAwAEAAEAAADy/wgAAwADAAEAAADy/wcAAwADAAEAAADy/wYAAwADAAEAAADy/wUAAwADAAEAAADy/wQAAwADAAEAAADy/wMAAwADAAEAAADy/wIAAwADAAEAAADy/wEAAwADAAEAAADy/wAAAwADAAEAAADy////AwADAAEAAADy//7/AwADAAEAAADy//3/AwADAAEAAADy//z/AwADAAEAAADy//v/AwADAAEAAADy//f/AwADAAEAAADy//j/AwADAAEAAADy//n/AwADAAEAAADy//r/AwADAAEAAADy/+7/AwADAAAAAADy/+//AwADAAEAAADy//D/AwADAAEAAADy//H/AwADAAEAAADy//L/AwADAAEAAADy//P/AwADAAEAAADy//T/AwADAAEAAADy//X/AwADAAEAAADy//b/AwADAAEAAADz/+7/AwAEAAAAAADz/+//AwAEAAEAAADz//D/AwAEAAEAAADz//H/AwAEAAEAAADz//L/AwAEAAEAAADz//P/AwAEAAEAAADz//T/AwAEAAEAAADz//X/AwAEAAEAAADz//b/AwAEAAEAAADz//f/AwAEAAEAAADz//j/AwAEAAEAAADz//n/AwAEAAEAAADz//r/AwAEAAEAAADz//z/AwAEAAEAAADz//3/AwAEAAEAAADz//v/AwAEAAEAAADz//7/AwAEAAEAAADz////AwAEAAEAAADz/wAAAwAEAAEAAADz/wEAAwAEAAEAAADz/wIAAwAEAAEAAAAGAAAAAAAKAAEAAAD2//z/AAAIAAEAAAD0/wkAAwAFAAEAAAD0/woAAwAFAAEAAAD0/wsAAwAFAAIAAADz/wkAAwAEAAEAAADz/woAAwAEAAEAAADz/wsAAwAEAAIAAADy/wkAAwADAAEAAADy/woAAwADAAEAAADy/wsAAwADAAIAAAA=")
 tile_set = SubResource("TileSet_fg2yt")
 
@@ -716,4 +717,10 @@ y_sort_origin = -1
 z_index = 1
 position = Vector2(-1, -1)
 
+[node name="BulletManager" type="Node2D" parent="."]
+script = ExtResource("7_h7h3p")
+bullet_scene = ExtResource("8_4pk8e")
+
 [node name="GameUI" parent="." instance=ExtResource("6_8mhjd")]
+
+[connection signal="shoot" from="Player" to="BulletManager" method="_on_player_shoot"]
