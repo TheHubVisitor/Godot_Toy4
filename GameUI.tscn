@@ -1,0 +1,187 @@
+[gd_scene load_steps=7 format=3 uid="uid://bve0tuaq6bajh"]
+
+[ext_resource type="Script" path="res://game_ui.gd" id="1_58n0c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7kxy"]
+bg_color = Color(0.373629, 0.67361, 0.516995, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjj8a"]
+bg_color = Color(0.372549, 0.67451, 0.517647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3usya"]
+bg_color = Color(0.141176, 0.341176, 0.309804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rko6"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j1krr"]
+resource_local_to_scene = true
+line_spacing = 4.0
+font_size = 30
+font_color = Color(1, 1, 0.203922, 1)
+outline_size = 2
+outline_color = Color(0.145098, 0.145098, 0.145098, 1)
+
+[node name="GameUI" type="CanvasLayer"]
+script = ExtResource("1_58n0c")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -346.0
+offset_top = -308.0
+offset_right = 338.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s7kxy")
+
+[node name="GameOverLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -147.0
+offset_right = 126.0
+offset_bottom = -83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 46
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WavesSurvivedLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -56.0
+offset_right = 185.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "You have suvived 0 waves!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="."]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_yjj8a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3usya")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4rko6")
+action_mode = 0
+text = "PLAY AGAIN"
+
+[node name="TitleScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameTitleLabel" type="Label" parent="TitleScreen"]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 347.0
+offset_right = 969.0
+offset_bottom = 430.0
+theme_override_font_sizes/font_size = 60
+text = "WHATEVER WE CALL IT!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CopyrightLabel" type="Label" parent="TitleScreen"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 644.0
+offset_right = 971.0
+offset_bottom = 727.0
+theme_override_font_sizes/font_size = 20
+text = "© 2025 the pros"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="CreditsButton" type="Button" parent="TitleScreen"]
+layout_mode = 0
+offset_left = 562.0
+offset_top = 570.0
+offset_right = 726.0
+offset_bottom = 620.0
+theme_override_colors/font_hover_color = Color(0.921569, 0.905882, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.0837334, 0.157989, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Credits"
+flat = true
+
+[node name="StartButton" type="Button" parent="TitleScreen"]
+layout_mode = 0
+offset_left = 541.0
+offset_top = 511.0
+offset_right = 736.0
+offset_bottom = 569.0
+theme_override_colors/font_hover_color = Color(0.921569, 0.905882, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.0823529, 0.156863, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 36
+action_mode = 0
+text = "Start"
+
+[node name="CreditsScreen" type="Control" parent="."]
+visible = false
+top_level = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CreditsScreen"]
+layout_mode = 0
+offset_left = 419.0
+offset_top = 351.0
+offset_right = 849.0
+offset_bottom = 639.0
+text = "Credits
+
+Developed by: Team Pros
+Art & Animation: Muqian
+Level Designer: Kekoa 
+Music & Project Lead: Kevin
+"
+label_settings = SubResource("LabelSettings_j1krr")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BackButton" type="Button" parent="CreditsScreen"]
+layout_mode = 0
+offset_left = 599.0
+offset_top = 658.0
+offset_right = 685.0
+offset_bottom = 708.0
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[connection signal="pressed" from="TitleScreen/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="TitleScreen/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CreditsScreen/BackButton" to="." method="_on_back_button_pressed"]

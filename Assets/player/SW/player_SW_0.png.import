@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn3vid282trcg"
-path="res://.godot/imported/survivalgame-trees.png-f61b131f12337b2012b3afe168e799fc.ctex"
+uid="uid://d4e8oqrpvk3jq"
+path="res://.godot/imported/player_SW_0.png-546554436ce05ecfa3307147b3f11c1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets /survivalgame-trees.png"
-dest_files=["res://.godot/imported/survivalgame-trees.png-f61b131f12337b2012b3afe168e799fc.ctex"]
+source_file="res://Assets/player/SW/player_SW_0.png"
+dest_files=["res://.godot/imported/player_SW_0.png-546554436ce05ecfa3307147b3f11c1a.ctex"]
 
 [params]
 
