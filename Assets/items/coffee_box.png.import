@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpye3svbymoeb"
-path="res://.godot/imported/coffee_box.png-558264ec68e1c132dc6a7bb8c1b6bc1b.ctex"
+path="res://.godot/imported/coffee_box.png-13805f0bf100e847dea9723259288389.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/coffee_box.png"
-dest_files=["res://.godot/imported/coffee_box.png-558264ec68e1c132dc6a7bb8c1b6bc1b.ctex"]
+source_file="res://Assets/items/coffee_box.png"
+dest_files=["res://.godot/imported/coffee_box.png-13805f0bf100e847dea9723259288389.ctex"]
 
 [params]
 

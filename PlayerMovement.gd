@@ -58,7 +58,7 @@ func get_tile_speed():
 func _physics_process(delta):
 	#player movement
 	var playerInput = get_input()
-	velocity = lerp(velocity, playerInput * SPEED, delta)
+	velocity = lerp(velocity, playerInput * SPEED * get_tile_speed(), delta)
 	move_and_slide()
 	
 	# Get camera viewport bounds
