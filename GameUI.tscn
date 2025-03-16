@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bve0tuaq6bajh"]
+[gd_scene load_steps=7 format=3 uid="uid://cfur6xrpwc66x"]
 
 [ext_resource type="Script" path="res://game_ui.gd" id="1_58n0c"]
 
@@ -104,7 +104,7 @@ offset_top = 347.0
 offset_right = 969.0
 offset_bottom = 430.0
 theme_override_font_sizes/font_size = 60
-text = "WHATEVER WE CALL IT!"
+text = "Oh Shoot!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
