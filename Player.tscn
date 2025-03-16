@@ -1,13 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5ac8l4m8jqwr"]
+[gd_scene load_steps=6 format=3 uid="uid://b5ac8l4m8jqwr"]
 
 [ext_resource type="Script" path="res://PlayerMovement.gd" id="1_en32i"]
+[ext_resource type="Texture2D" uid="uid://s3xgyqvwpuaj" path="res://icon.svg" id="2_ncdf5"]
+[ext_resource type="Script" path="res://node_2d.gd" id="3_dw5m6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygune"]
-size = Vector2(38, 38)
+[sub_resource type="CircleShape2D" id="CircleShape2D_xakgc"]
+radius = 15.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_77ikk"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ncdf5")
+}],
 "loop": true,
 "name": &"MOVE",
 "speed": 5.0
@@ -16,16 +21,31 @@ animations = [{
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_en32i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_ygune")
-
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(-576, -324)
-offset = Vector2(576, 324)
 zoom = Vector2(2, 2)
+limit_left = -600
+limit_top = -750
+limit_right = 600
+limit_bottom = 500
+editor_draw_limits = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+<<<<<<< HEAD
+shape = SubResource("CircleShape2D_xakgc")
+=======
+shape = SubResource("RectangleShape2D_ygune")
+debug_color = Color(0.784151, 0.371745, 0.588189, 0.42)
+>>>>>>> 44d372abb4a2eadcee79bf9013788fc476d3589f
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.265625, 0.265625)
 sprite_frames = SubResource("SpriteFrames_77ikk")
 animation = &"MOVE"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(25, 0)
+script = ExtResource("3_dw5m6")

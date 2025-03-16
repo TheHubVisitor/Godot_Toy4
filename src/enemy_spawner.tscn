@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://kg03x4islknl"]
-
-[node name="EnemySpawner" type="Node2D"]
-
-[node name="Marker2D" type="Marker2D" parent="."]
