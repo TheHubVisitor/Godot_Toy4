@@ -128,6 +128,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk5",
+
 "speed": 5.0
 }, {
 "frames": [{
@@ -145,6 +146,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk6",
+
 "speed": 5.0
 }, {
 "frames": [{
@@ -162,6 +164,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk7",
+
 "speed": 5.0
 }]
 
@@ -194,3 +197,4 @@ wait_time = 4.0
 [connection signal="timeout" from="CharacterBody2D/ShotTimer" to="CharacterBody2D" method="_on_shot_timer_timeout"]
 [connection signal="timeout" from="CharacterBody2D/BoostTimer" to="CharacterBody2D" method="_on_boost_timer_timeout"]
 [connection signal="timeout" from="CharacterBody2D/FastFireTimer" to="CharacterBody2D" method="_on_fast_fire_timer_timeout"]
+
