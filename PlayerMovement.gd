@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal shoot
 
-const SPEED = 120
+const SPEED = 150
 const WATER_SPEED = 60
 const DEEP_WATER_SPEED = 30
 const ACCEL = 2.0
@@ -36,6 +36,24 @@ func get_input():
 		$ShotTimer.start()
 
 	return input.normalized()
+
+func get_tile_speed():
+	var tilemap: TileMapLayer = get_tree().get_first_node_in_group("Tilemap")
+	#Getting tilemap layer
+	if not tilemap:
+		return 1
+	#If your not on the tilemap
+	var cell := tilemap.local_to_map(position)
+	#current tile that you are on
+	var data: TileData = tilemap.get_cell_tile_data(cell)
+	#get data for this tile
+	if data: 
+		var tile_speed: float = data.get_custom_data("Terrain")
+		if tile_speed > 0:
+			return tile_speed
+	#If there is data on this tile, use that data
+	return 1
+	#In any other circumstance, use the base velocity.
 
 func _physics_process(delta):
 	#player movement
