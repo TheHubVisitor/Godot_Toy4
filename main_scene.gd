@@ -1,12 +1,12 @@
 extends Node2D
 
-@export var player_scene: PackedScene = preload("res://Player.tscn")
-@export var bullet_scene: PackedScene = preload("res://Bullet.tscn")
+@export var player_scene: PackedScene = preload("res://player.tscn")
+@export var bullet_scene: PackedScene = preload("res://bullet.tscn")
 
-@onready var main_player = $player
+@onready var main_player = $Player
 
 func _ready():
-	start_wave(2)
+	start_wave(1)
 
 func start_wave(wave_number):
 	print("Starting Wave:", wave_number)	

@@ -1,15 +1,15 @@
 [gd_scene load_steps=13 format=3 uid="uid://boprq5n4ee778"]
 
-[ext_resource type="Script" path="res://enemy.gd" id="1_fat8t"]
-[ext_resource type="Texture2D" uid="uid://dgt30q1c0t68h" path="res://Assets/EnemyAnim/goblin/goblin_dead_anim_f0.png" id="2_ufetx"]
-[ext_resource type="Texture2D" uid="uid://dpj0bd1ba6sm8" path="res://Assets/EnemyAnim/goblin/goblin_idle_anim_f0.png" id="3_xmuoa"]
-[ext_resource type="Texture2D" uid="uid://ckt2ckgx502wv" path="res://Assets/EnemyAnim/goblin/goblin_idle_anim_f1.png" id="4_eo32j"]
-[ext_resource type="Texture2D" uid="uid://bkhka1bymkk4f" path="res://Assets/EnemyAnim/goblin/goblin_idle_anim_f2.png" id="5_d352e"]
-[ext_resource type="Texture2D" uid="uid://cpapq8r7i6fv3" path="res://Assets/EnemyAnim/goblin/goblin_idle_anim_f3.png" id="6_2lyix"]
-[ext_resource type="Texture2D" uid="uid://dneu4qysyw1cg" path="res://Assets/EnemyAnim/goblin/goblin_run_anim_f0.png" id="7_ktfqq"]
-[ext_resource type="Texture2D" uid="uid://dasobk16s1fun" path="res://Assets/EnemyAnim/goblin/goblin_run_anim_f1.png" id="8_1vokb"]
-[ext_resource type="Texture2D" uid="uid://dbslbq56e7cnk" path="res://Assets/EnemyAnim/goblin/goblin_run_anim_f2.png" id="9_c2otg"]
-[ext_resource type="Texture2D" uid="uid://hdm4jfrk5gqv" path="res://Assets/EnemyAnim/goblin/goblin_run_anim_f3.png" id="10_e737h"]
+[ext_resource type="Script" path="res://enemy.gd" id="1_kl1xh"]
+[ext_resource type="Texture2D" uid="uid://dgt30q1c0t68h" path="res://assets/enemies/goblin/goblin_dead_anim_f0.png" id="2_0cev8"]
+[ext_resource type="Texture2D" uid="uid://dpj0bd1ba6sm8" path="res://assets/enemies/goblin/goblin_idle_anim_f0.png" id="3_cict7"]
+[ext_resource type="Texture2D" uid="uid://ckt2ckgx502wv" path="res://assets/enemies/goblin/goblin_idle_anim_f1.png" id="4_gng1x"]
+[ext_resource type="Texture2D" uid="uid://bkhka1bymkk4f" path="res://assets/enemies/goblin/goblin_idle_anim_f2.png" id="5_rlt34"]
+[ext_resource type="Texture2D" uid="uid://cpapq8r7i6fv3" path="res://assets/enemies/goblin/goblin_idle_anim_f3.png" id="6_sfp88"]
+[ext_resource type="Texture2D" uid="uid://dneu4qysyw1cg" path="res://assets/enemies/goblin/goblin_run_anim_f0.png" id="7_5i74n"]
+[ext_resource type="Texture2D" uid="uid://dasobk16s1fun" path="res://assets/enemies/goblin/goblin_run_anim_f1.png" id="8_iw25o"]
+[ext_resource type="Texture2D" uid="uid://dbslbq56e7cnk" path="res://assets/enemies/goblin/goblin_run_anim_f2.png" id="9_y37us"]
+[ext_resource type="Texture2D" uid="uid://hdm4jfrk5gqv" path="res://assets/enemies/goblin/goblin_run_anim_f3.png" id="10_j43o1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rjm1"]
 size = Vector2(12, 11)
@@ -18,7 +18,7 @@ size = Vector2(12, 11)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ufetx")
+"texture": ExtResource("2_0cev8")
 }],
 "loop": true,
 "name": &"Death",
@@ -26,16 +26,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_xmuoa")
+"texture": ExtResource("3_cict7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_eo32j")
+"texture": ExtResource("4_gng1x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_d352e")
+"texture": ExtResource("5_rlt34")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_2lyix")
+"texture": ExtResource("6_sfp88")
 }],
 "loop": true,
 "name": &"Idle",
@@ -43,16 +43,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_ktfqq")
+"texture": ExtResource("7_5i74n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_1vokb")
+"texture": ExtResource("8_iw25o")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_c2otg")
+"texture": ExtResource("9_y37us")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_e737h")
+"texture": ExtResource("10_j43o1")
 }],
 "loop": true,
 "name": &"Run",
@@ -63,7 +63,7 @@ animations = [{
 metadata/_edit_group_ = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_fat8t")
+script = ExtResource("1_kl1xh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(1, 2.5)
@@ -72,5 +72,5 @@ shape = SubResource("RectangleShape2D_5rjm1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_3hvmd")
-animation = &"Idle"
+animation = &"Run"
 autoplay = "Idle"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dri2uowh3jxj6"
-path="res://.godot/imported/heart.png-29e909d82efa9ea29c8a8de46d72e21d.ctex"
+uid="uid://hdm4jfrk5gqv"
+path="res://.godot/imported/goblin_run_anim_f3.png-14de4454123e9b8c73d38c58d4d11a48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/heart.png"
-dest_files=["res://.godot/imported/heart.png-29e909d82efa9ea29c8a8de46d72e21d.ctex"]
+source_file="res://assets/enemies/goblin/goblin_run_anim_f3.png"
+dest_files=["res://.godot/imported/goblin_run_anim_f3.png-14de4454123e9b8c73d38c58d4d11a48.ctex"]
 
 [params]
 
