@@ -3,7 +3,6 @@ extends Node2D
 @export var player_scene: PackedScene = preload("res://Player.tscn")
 @export var bullet_scene: PackedScene = preload("res://Bullet.tscn")
 
-@onready var bullet_manager = $"../BulletManager"
 @onready var main_player = $player
 
 func _ready():

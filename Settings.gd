@@ -6,9 +6,7 @@ static var current_wave = 1
 
 # Default Player & Bullet Settings
 static var PLAYER_HEALTH = 5
-static var PLAYER_SPEED = 150
-static var PLAYER_WATER_SPEED = 60
-static var PLAYER_DEEP_WATER_SPEED = 30
+static var PLAYER_SPEED = 150.0
 static var PLAYER_ACCEL = 2.0
 
 static var BULLET_SPEED = 600
