@@ -9,11 +9,11 @@ static var PLAYER_HEALTH = 5
 static var PLAYER_SPEED = 150.0
 static var PLAYER_ACCEL = 2.0
 
-static var BULLET_SPEED = 600
+static var BULLET_SPEED = 600.0
 static var NORMAL_SHOT : float = 0.5
 static var FAST_SHOT : float = 0.1
 
-static var ENEMY_SPEED = 200
+static var ENEMY_SPEED = 200.0
 static var ENEMY_ACCEL = 2.0
 static var ENEMY_DAMAGE = 1.0
 static var NUMBER_ENEMIES = 5
