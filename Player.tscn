@@ -25,21 +25,8 @@ collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_en32i")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(2, 2)
-limit_left = -600
-limit_top = -750
-limit_right = 600
-limit_bottom = 500
-editor_draw_limits = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-<<<<<<< HEAD
 shape = SubResource("CircleShape2D_xakgc")
-=======
-shape = SubResource("RectangleShape2D_ygune")
-debug_color = Color(0.784151, 0.371745, 0.588189, 0.42)
->>>>>>> 44d372abb4a2eadcee79bf9013788fc476d3589f
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.265625, 0.265625)
