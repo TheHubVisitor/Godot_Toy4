@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://boprq5n4ee778"]
+
+[ext_resource type="Texture2D" uid="uid://dgt30q1c0t68h" path="res://Assets/EnemyAnim/goblin/goblin_dead_anim_f0.png" id="1_68pt4"]
+[ext_resource type="Texture2D" uid="uid://dpj0bd1ba6sm8" path="res://Assets/EnemyAnim/goblin/goblin_idle_anim_f0.png" id="2_7vj56"]
+[ext_resource type="Texture2D" uid="uid://ckt2ckgx502wv" path="res://Assets/EnemyAnim/goblin/goblin_idle_anim_f1.png" id="3_ljsfr"]
+[ext_resource type="Texture2D" uid="uid://bkhka1bymkk4f" path="res://Assets/EnemyAnim/goblin/goblin_idle_anim_f2.png" id="4_8n300"]
+[ext_resource type="Texture2D" uid="uid://cpapq8r7i6fv3" path="res://Assets/EnemyAnim/goblin/goblin_idle_anim_f3.png" id="5_qe3g7"]
+[ext_resource type="Texture2D" uid="uid://dneu4qysyw1cg" path="res://Assets/EnemyAnim/goblin/goblin_run_anim_f0.png" id="6_pncju"]
+[ext_resource type="Texture2D" uid="uid://dasobk16s1fun" path="res://Assets/EnemyAnim/goblin/goblin_run_anim_f1.png" id="7_f0seu"]
+[ext_resource type="Texture2D" uid="uid://dbslbq56e7cnk" path="res://Assets/EnemyAnim/goblin/goblin_run_anim_f2.png" id="8_vpsp0"]
+[ext_resource type="Texture2D" uid="uid://hdm4jfrk5gqv" path="res://Assets/EnemyAnim/goblin/goblin_run_anim_f3.png" id="9_rv3iq"]
+
+[sub_resource type="GDScript" id="GDScript_us1k6"]
+script/source = "extends CharacterBody2D
+
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+
+
+func _physics_process(delta: float) -> void:
+
+
+	move_and_slide()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rjm1"]
+size = Vector2(12, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3hvmd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_68pt4")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7vj56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ljsfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8n300")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qe3g7")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_pncju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f0seu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vpsp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rv3iq")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 10.0
+}]
+
+[node name="Enemy" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = SubResource("GDScript_us1k6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(1, 2.5)
+shape = SubResource("RectangleShape2D_5rjm1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_3hvmd")
+animation = &"Idle"
+autoplay = "Idle"
