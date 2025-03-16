@@ -6,7 +6,7 @@ extends Node2D
 @onready var main_player = $Player
 
 func _ready():
-	start_wave(1)
+	start_wave(2)
 
 func start_wave(wave_number):
 	print("Starting Wave:", wave_number)	
