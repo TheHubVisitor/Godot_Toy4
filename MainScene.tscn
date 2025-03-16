@@ -724,7 +724,7 @@ metadata/_edit_group_ = true
 
 [node name="player" parent="." instance=ExtResource("2_b4jub")]
 z_index = 1
-position = Vector2(-20, 20)
+position = Vector2(-75, -71)
 script = null
 
 [node name="MapBorders" type="Node2D" parent="."]
