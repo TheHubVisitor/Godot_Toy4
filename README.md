@@ -1,4 +1,4 @@
-# Godot Toy4
+# Godot Toy4 src
 
 ---------
 ### High-level Requirements
@@ -15,13 +15,7 @@
 - There should be a credits screen
 - Theme: self-replication
 
-### Important Links
-
-- [Game Design Document](https://docs.google.com/document/d/1WgKdUrOOLaqXFQiZx8bhT4s4vOvIJSla/edit?usp=sharing&ouid=106293787703967750846&rtpof=true&sd=true)
-- [Trello Workspace Board](https://trello.com/invite/b/67cb00578968bad9b0630884/ATTIb414001f33dcf9d5cde79697a4a36687EEA889A9/gdd-toy4-pro)
-
 ### Game Description
 
-- Multi-level 2D Wave-based Shooter
-
-  
+- Wave-ased Shooter
+- 
