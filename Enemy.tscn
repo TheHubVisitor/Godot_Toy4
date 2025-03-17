@@ -74,3 +74,8 @@ animation = &"Idle"
 frame_progress = 0.700917
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
