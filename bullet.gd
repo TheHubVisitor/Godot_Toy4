@@ -11,10 +11,9 @@ func _on_timer_timeout():
 
 func _on_body_entered(body):
 	print(body.name)
-	if body.name == "TileMapLayer":
+	if body.name == "TileMapLayer" or body.name == "Tress":
 		queue_free()
-	elif body.name != "Player":
-		pass
-		#if body.alive:
-			#body.die()
-			#queue_free()
+	elif body.name != "Enemy":
+		if body.alive:
+			body.die()
+			queue_free()

@@ -31,7 +31,7 @@ func _physics_process(delta):
 func die():
 	alive = false
 	$AnimatedSprite2D.stop()
-	$AnimatedSprite2D.animation = "Dead"
+	$AnimatedSprite2D.animation = "Death"
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
 	if randf() <= settings.DROP_RATE:
 		drop_item()
@@ -49,4 +49,3 @@ func drop_item():
 
 func _on_area_2d_body_entered(_body):
 	hit_player.emit()
-
