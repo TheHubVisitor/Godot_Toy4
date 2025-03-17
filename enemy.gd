@@ -49,3 +49,4 @@ func drop_item():
 
 func _on_area_2d_body_entered(_body):
 	hit_player.emit()
+

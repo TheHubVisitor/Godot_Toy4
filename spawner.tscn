@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://b15avab4bl7yi"]
+
+[ext_resource type="Script" path="res://spawner.gd" id="1_78nj1"]
+
+[node name="Spawner" type="Node2D"]
+position = Vector2(-62, 276)
+script = ExtResource("1_78nj1")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+z_index = 1
+position = Vector2(-274, -1106)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+z_index = 1
+position = Vector2(854, -202)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+z_index = 1
+position = Vector2(858, -426)
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+z_index = 1
+position = Vector2(858, -1058)
+
+[node name="Marker2D5" type="Marker2D" parent="."]
+z_index = 1
+position = Vector2(140, -1106)
+
+[node name="Marker2D6" type="Marker2D" parent="."]
+z_index = 1
+position = Vector2(474, 380)
+
+[node name="Marker2D7" type="Marker2D" parent="."]
+z_index = 1
+position = Vector2(-318, 370)
+
+[node name="Marker2D8" type="Marker2D" parent="."]
+z_index = 1
+position = Vector2(504, -1080)
+
+[node name="Marker2D9" type="Marker2D" parent="."]
+z_index = 1
+position = Vector2(850, -18)
+
+[node name="Marker2D10" type="Marker2D" parent="."]
+z_index = 1
+position = Vector2(100, 358)
+
+[node name="Marker2D11" type="Marker2D" parent="."]
+z_index = 1
+position = Vector2(-674, 352)
+
+[node name="Marker2D12" type="Marker2D" parent="."]
+z_index = 1
+position = Vector2(834, 380)
+
+[node name="Marker2D13" type="Marker2D" parent="."]
+z_index = 1
+position = Vector2(-484, -1168)
+
+[node name="Marker2D14" type="Marker2D" parent="."]
+z_index = 1
+position = Vector2(-542, -1010)
+
+[node name="Marker2D15" type="Marker2D" parent="."]
+z_index = 1
+position = Vector2(-688, -1158)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
