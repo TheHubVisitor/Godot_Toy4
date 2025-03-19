@@ -8,23 +8,23 @@ script = ExtResource("1_78nj1")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(-274, -1106)
+position = Vector2(34, -932)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(854, -202)
+position = Vector2(758, -204)
 
 [node name="Marker2D3" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(858, -426)
+position = Vector2(754, -416)
 
 [node name="Marker2D4" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(858, -1058)
+position = Vector2(850, -662)
 
 [node name="Marker2D5" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(140, -1106)
+position = Vector2(366, -920)
 
 [node name="Marker2D6" type="Marker2D" parent="."]
 z_index = 1
@@ -32,15 +32,15 @@ position = Vector2(474, 380)
 
 [node name="Marker2D7" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(-318, 370)
+position = Vector2(-160, 368)
 
 [node name="Marker2D8" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(504, -1080)
+position = Vector2(672, -930)
 
 [node name="Marker2D9" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(850, -18)
+position = Vector2(610, 156)
 
 [node name="Marker2D10" type="Marker2D" parent="."]
 z_index = 1
@@ -48,25 +48,24 @@ position = Vector2(100, 358)
 
 [node name="Marker2D11" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(-674, 352)
+position = Vector2(260, 0)
 
 [node name="Marker2D12" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(834, 380)
+position = Vector2(250, -446)
 
 [node name="Marker2D13" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(-484, -1168)
+position = Vector2(-154, -112)
 
 [node name="Marker2D14" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(-542, -1010)
+position = Vector2(-302, -718)
 
 [node name="Marker2D15" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(-688, -1158)
+position = Vector2(-212, -936)
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var player = get_node("/root/Toy4/Player")
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 
-#var explosion_scene := preload("res://explosion.tscn")
+var explosion_scene := preload("res://explosion.tscn")
 var item_scene := preload("res://drop_item.tscn")
 
 signal hit_player
@@ -35,10 +35,10 @@ func die():
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
 	if randf() <= settings.DROP_RATE:
 		drop_item()
-	#var explosion = explosion_scene.instantiate()
-	#explosion.position = position
-	#main.add_child(explosion)
-	#explosion.process_mode = Node.PROCESS_MODE_ALWAYS
+	var explosion = explosion_scene.instantiate()
+	explosion.position = position
+	main.add_child(explosion)
+	explosion.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func drop_item():
 	var item = item_scene.instantiate()
@@ -47,5 +47,6 @@ func drop_item():
 	main.call_deferred("add_child", item)
 	item.add_to_group("items")
 
-func _on_area_2d_body_entered(_body):
-	hit_player.emit()
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("players"):
+		hit_player.emit()
