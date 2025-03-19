@@ -8,8 +8,8 @@ var speed : float
 var screen_size : Vector2
 
 func _ready():
+	add_to_group("players")
 	screen_size = get_viewport_rect().size
-	reset()
 
 func reset():
 	can_shoot = true
@@ -48,31 +48,32 @@ func get_tile_speed():
 	#In any other circumstance, use the base velocity.
 
 func _physics_process(delta):
-	#player movement
-	var playerInput = get_input()
-	speed = settings.PLAYER_SPEED
-	velocity = lerp(velocity, playerInput * speed * get_tile_speed(), delta)
-	move_and_slide()
-	
-	# Get camera viewport bounds
-	var camera = get_viewport().get_camera_2d()
-	if camera:
-		# Clamp player position within camera view
-		position.x = clamp(position.x, camera.limit_left, camera.limit_right)
-		position.y = clamp(position.y, camera.limit_top, camera.limit_bottom - 20)
-	
-	#player rotation
-	var mouse = get_local_mouse_position()
-	var angle = snappedf(mouse.angle(), PI / 4) / (PI / 4)
-	angle = wrapi(int(angle), 0, 8)
-	
-	$AnimatedSprite2D.animation = "walk" + str(angle)	
-	#player animation
-	if velocity.length() != 0:
-		$AnimatedSprite2D.play()
-	else:
-		$AnimatedSprite2D.stop()
-		$AnimatedSprite2D.frame = 1
+	if settings.game_start:
+		#player movement
+		var playerInput = get_input()
+		speed = settings.PLAYER_SPEED
+		velocity = lerp(velocity, playerInput * speed * get_tile_speed(), delta)
+		move_and_slide()
+		
+		# Get camera viewport bounds
+		var camera = get_viewport().get_camera_2d()
+		if camera:
+			# Clamp player position within camera view
+			position.x = clamp(position.x, camera.limit_left, camera.limit_right)
+			position.y = clamp(position.y, camera.limit_top, camera.limit_bottom - 50)
+		
+		#player rotation
+		var mouse = get_local_mouse_position()
+		var angle = snappedf(mouse.angle(), PI / 4) / (PI / 4)
+		angle = wrapi(int(angle), 0, 8)
+		
+		$AnimatedSprite2D.animation = "walk" + str(angle)	
+		#player animation
+		if velocity.length() != 0:
+			$AnimatedSprite2D.play()
+		else:
+			$AnimatedSprite2D.stop()
+			$AnimatedSprite2D.frame = 1
 
 func boost():
 	$BoostTimer.start()

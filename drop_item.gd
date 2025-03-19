@@ -14,16 +14,16 @@ func _ready():
 	$Sprite2D.texture = textures[item_type]
 
 func _on_body_entered(body):
-	pass
-	## coffee
-	#if item_type == 0:
-		#body.boost()
-	## health
-	#elif item_type == 1:
-		#main.lives += 1
-		#lives_label.text = "X " + str(main.lives)
-	## gun
-	#elif item_type == 2:
-		#body.quick_fire()
-	## delete item
-	#queue_free()
+	if body.is_in_group("players"):
+		# coffee
+		if item_type == 0:
+			body.boost()
+		# health
+		elif item_type == 1:
+			settings.PLAYER_HEALTH += 1
+			lives_label.text = "X " + str(settings.PLAYER_HEALTH)
+		# gun
+		elif item_type == 2:
+			body.quick_fire()
+		# delete item
+		queue_free()

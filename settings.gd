@@ -18,15 +18,17 @@ static var FAST_SHOT : float = 0.1
 static var ENEMY_SPEED = 100.0
 static var ENEMY_ACCEL = 2.0
 static var ENEMY_DAMAGE = 1.0
-static var NUMBER_ENEMIES = 5
+static var NUMBER_ENEMIES = 10
+static var SPAWN_INTERVAL = 1.0
+
 static var DROP_RATE : float = 0.1
 
 # Wave-Specific Settings
 static var WAVE_CONFIGS = {
-	1: { "ENEMY_SPEED": 100, "NUMBER_ENEMIES": 5, "PLAYER_HEALTH": 5 },
-	2: { "ENEMY_SPEED": 120, "NUMBER_ENEMIES": 10, "PLAYER_HEALTH": 6 },
-	3: { "ENEMY_SPEED": 150, "NUMBER_ENEMIES": 15, "PLAYER_HEALTH": 7 },
-	4: { "ENEMY_SPEED": 180, "NUMBER_ENEMIES": 20, "PLAYER_HEALTH": 8 }
+	1: { "ENEMY_SPEED": 100, "NUMBER_ENEMIES": 50, "PLAYER_HEALTH": 3, "SPAWN_INTERVAL": 0.9 },
+	2: { "ENEMY_SPEED": 110, "NUMBER_ENEMIES": 75, "PLAYER_HEALTH": 3, "SPAWN_INTERVAL": 0.8 },
+	3: { "ENEMY_SPEED": 125, "NUMBER_ENEMIES": 100, "PLAYER_HEALTH": 3, "SPAWN_INTERVAL": 0.7 },
+	4: { "ENEMY_SPEED": 150, "NUMBER_ENEMIES": 150, "PLAYER_HEALTH": 3, "SPAWN_INTERVAL": 0.6 }
 }
 
 # Function to Update Settings for Current Wave
@@ -37,3 +39,4 @@ static func apply_wave_settings(wave_number):
 		ENEMY_SPEED = wave_data["ENEMY_SPEED"]
 		NUMBER_ENEMIES = wave_data["NUMBER_ENEMIES"]
 		PLAYER_HEALTH = wave_data["PLAYER_HEALTH"]
+		SPAWN_INTERVAL = wave_data["SPAWN_INTERVAL"]
