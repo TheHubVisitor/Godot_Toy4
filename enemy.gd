@@ -1,16 +1,14 @@
 extends CharacterBody2D
 
 @onready var main = get_node("/root/Toy4")
-@onready var player = get_node("/root/Toy4/Player")
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 
 var explosion_scene := preload("res://explosion.tscn")
 var item_scene := preload("res://drop_item.tscn")
 
-signal hit_player
-
 var alive : bool
 var direction : Vector2
+var collision_cooldown = false
 
 func _ready():
 	alive = true
@@ -18,15 +16,18 @@ func _ready():
 func _physics_process(delta):
 	if alive and settings.game_start:
 		$AnimatedSprite2D.animation = "Run"
-		nav.target_position = player.position
-		direction = nav.get_next_path_position() - global_position
-		velocity = velocity.lerp(direction.normalized() * settings.ENEMY_SPEED, delta * settings.ENEMY_ACCEL)
-		move_and_slide()
 		
-		if velocity.x != 0:
-			$AnimatedSprite2D.flip_h = velocity.x < 0
-	else:
-		pass
+		var players = get_tree().get_nodes_in_group("players")
+		if players.size() > 0:
+			# choose the closest target
+			players.sort_custom(func(a, b): return global_position.distance_to(a.global_position) < global_position.distance_to(b.global_position))
+			nav.target_position = players[0].position
+			direction = nav.get_next_path_position() - global_position
+			velocity = velocity.lerp(direction.normalized() * settings.ENEMY_SPEED, delta * settings.ENEMY_ACCEL)
+			move_and_slide()
+		
+			if velocity.x != 0:
+				$AnimatedSprite2D.flip_h = velocity.x < 0
 
 func die():
 	alive = false
@@ -49,4 +50,9 @@ func drop_item():
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("players"):
-		hit_player.emit()
+		collision_cooldown = true
+		body.take_damage()
+		
+		# Set a short cooldown before another collision can trigger
+		await get_tree().create_timer(0.5).timeout
+		collision_cooldown = false

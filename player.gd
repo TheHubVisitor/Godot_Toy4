@@ -3,18 +3,42 @@ extends CharacterBody2D
 signal shoot
 
 var can_shoot : bool
-var input: Vector2
+var input : Vector2
 var speed : float
 var screen_size : Vector2
+var health : int
+
+var boost_factor : int = 1
 
 func _ready():
-	add_to_group("players")
 	screen_size = get_viewport_rect().size
+	health = settings.PLAYER_HEALTH
+	if not is_in_group("players"):
+		add_to_group("players")
+	reset()
 
 func reset():
 	can_shoot = true
-	speed = settings.PLAYER_SPEED
+	speed = settings.PLAYER_SPEED * get_tile_speed() * boost_factor
 	$ShotTimer.wait_time = settings.NORMAL_SHOT
+	separate_from_others()
+
+func separate_from_others():
+	var players = get_tree().get_nodes_in_group("players")
+	for p in players:
+		if p != self:
+			var distance = global_position.distance_to(p.global_position)
+			if distance < 10:
+				var push_direction = (global_position - p.global_position).normalized()
+				move_and_collide(push_direction * 5)
+
+func take_damage():
+	health -= settings.ENEMY_DAMAGE
+	settings.total_lives -= settings.ENEMY_DAMAGE
+	explode()
+	
+	if health <= 0:
+		queue_free()
 
 func get_input():
 	input.x =  Input.get_action_strength("Right") - Input.get_action_strength("Left")
@@ -48,13 +72,20 @@ func get_tile_speed():
 	#In any other circumstance, use the base velocity.
 
 func _physics_process(delta):
+	if self == get_tree().get_first_node_in_group("players") and modulate.a < 1.0:
+		modulate.a = 1.0
+		name = "Player"
+		print("New main player assigned: ", name)
+	
 	if settings.game_start:
 		#player movement
 		var playerInput = get_input()
-		speed = settings.PLAYER_SPEED
-		velocity = lerp(velocity, playerInput * speed * get_tile_speed(), delta)
+		speed = settings.PLAYER_SPEED * get_tile_speed() * boost_factor
+		velocity = lerp(velocity, playerInput * speed, delta)
 		move_and_slide()
 		
+		separate_from_others()
+
 		# Get camera viewport bounds
 		var camera = get_viewport().get_camera_2d()
 		if camera:
@@ -62,7 +93,7 @@ func _physics_process(delta):
 			position.x = clamp(position.x, camera.limit_left, camera.limit_right)
 			position.y = clamp(position.y, camera.limit_top, camera.limit_bottom - 50)
 		
-		#player rotation
+		# player rotation
 		var mouse = get_local_mouse_position()
 		var angle = snappedf(mouse.angle(), PI / 4) / (PI / 4)
 		angle = wrapi(int(angle), 0, 8)
@@ -75,9 +106,15 @@ func _physics_process(delta):
 			$AnimatedSprite2D.stop()
 			$AnimatedSprite2D.frame = 1
 
+func explode():
+	var explosion = preload("res://explosion.tscn").instantiate()
+	explosion.global_position = global_position
+	explosion.color = Color(1, 0, 0)
+	get_parent().add_child(explosion)
+
 func boost():
+	boost_factor = 4
 	$BoostTimer.start()
-	speed = settings.PLAYER_SPEED * settings.PLAYER_ACCEL
 
 func quick_fire():
 	$FastFireTimer.start()
@@ -87,7 +124,7 @@ func _on_shot_timer_timeout():
 	can_shoot = true
 
 func _on_boost_timer_timeout():
-	speed = settings.PLAYER_SPEED
+	boost_factor = 1
 
 func _on_fast_fire_timer_timeout():
 	$ShotTimer.wait_time = settings.NORMAL_SHOT

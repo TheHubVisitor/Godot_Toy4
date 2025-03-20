@@ -8,7 +8,7 @@ script = ExtResource("1_78nj1")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(34, -932)
+position = Vector2(68, -786)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
 z_index = 1
@@ -20,15 +20,15 @@ position = Vector2(754, -416)
 
 [node name="Marker2D4" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(850, -662)
+position = Vector2(552, -696)
 
 [node name="Marker2D5" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(366, -920)
+position = Vector2(-342, -418)
 
 [node name="Marker2D6" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(474, 380)
+position = Vector2(518, 378)
 
 [node name="Marker2D7" type="Marker2D" parent="."]
 z_index = 1
@@ -36,15 +36,15 @@ position = Vector2(-160, 368)
 
 [node name="Marker2D8" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(672, -930)
+position = Vector2(698, -882)
 
 [node name="Marker2D9" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(610, 156)
+position = Vector2(660, 114)
 
 [node name="Marker2D10" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(100, 358)
+position = Vector2(118, 318)
 
 [node name="Marker2D11" type="Marker2D" parent="."]
 z_index = 1
@@ -52,7 +52,7 @@ position = Vector2(260, 0)
 
 [node name="Marker2D12" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(250, -446)
+position = Vector2(324, -486)
 
 [node name="Marker2D13" type="Marker2D" parent="."]
 z_index = 1
@@ -60,11 +60,11 @@ position = Vector2(-154, -112)
 
 [node name="Marker2D14" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(-302, -718)
+position = Vector2(-292, -674)
 
 [node name="Marker2D15" type="Marker2D" parent="."]
 z_index = 1
-position = Vector2(-212, -936)
+position = Vector2(-128, -830)
 
 [node name="Timer" type="Timer" parent="."]
 
