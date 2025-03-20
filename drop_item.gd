@@ -14,7 +14,7 @@ func _ready():
 	$Sprite2D.texture = textures[item_type]
 
 func _on_body_entered(body):
-	if body.is_in_group("players"):
+	if body == get_tree().get_first_node_in_group("players"):
 		# coffee
 		if item_type == 0:
 			body.boost()

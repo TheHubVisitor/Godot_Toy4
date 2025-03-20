@@ -56,8 +56,9 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pp6d2"]
-radius = 15.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_okc8d"]
+radius = 13.0
+height = 38.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7j83"]
 size = Vector2(40, 37)
@@ -73,8 +74,8 @@ animation = &"Death"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 17)
-shape = SubResource("CircleShape2D_pp6d2")
+position = Vector2(3, 13)
+shape = SubResource("CapsuleShape2D_okc8d")
 debug_color = Color(0.915078, 0.261917, 0.325322, 0.42)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
