@@ -5,7 +5,7 @@ extends Node2D
 
 func _ready():
 	print("---MainScene Ready---")
-	start_wave(2)
+	start_wave(1)
 	$GameUI/RestartButton.pressed.connect(restart_game)
 
 func start_wave(wave_number: int = 1):
