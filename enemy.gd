@@ -3,6 +3,10 @@ extends CharacterBody2D
 @onready var main = get_node("/root/Toy4")
 @onready var player = get_node("/root/Toy4/Player")
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
+@onready var Disappear = $Disappear
+@onready var Coll = $CollisionShape2D
+@onready var Sprite = $AnimatedSprite2D
+
 
 #var explosion_scene := preload("res://explosion.tscn")
 var item_scene := preload("res://drop_item.tscn")
@@ -14,6 +18,8 @@ var direction : Vector2
 
 func _ready():
 	alive = true
+	Disappear.paused = true
+	Sprite.visible = true
 
 func _physics_process(delta):
 	if alive and settings.game_start:
@@ -33,6 +39,7 @@ func die():
 	$AnimatedSprite2D.stop()
 	$AnimatedSprite2D.animation = "Death"
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
+	Disappear.paused = false
 	if randf() <= settings.DROP_RATE:
 		drop_item()
 	#var explosion = explosion_scene.instantiate()
@@ -49,3 +56,7 @@ func drop_item():
 
 func _on_area_2d_body_entered(_body):
 	hit_player.emit()
+
+
+func _on_disappear_timeout() -> void:
+	Sprite.visible = false

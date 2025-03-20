@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://main_scene.gd" id="1_vl3mr"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="2_ba2jp"]
-[ext_resource type="PackedScene" uid="uid://b5ac8l4m8jqwr" path="res://player.tscn" id="3_c1qtf"]
-[ext_resource type="Texture2D" uid="uid://kbg3rrkv5ng5" path="res://assets/world/survivalgame-terrian-cliffs.png" id="4_m8mlk"]
+[ext_resource type="PackedScene" uid="uid://b5ac8l4m8jqwr" path="res://Player.tscn" id="3_c1qtf"]
+[ext_resource type="Texture2D" uid="uid://kbg3rrkv5ng5" path="res://Assets/world/survivalgame-terrian-cliffs.png" id="4_m8mlk"]
 [ext_resource type="PackedScene" uid="uid://b15avab4bl7yi" path="res://spawner.tscn" id="4_vyq8l"]
-[ext_resource type="Texture2D" uid="uid://1qdntb8oypud" path="res://assets/world/survivalgame-terrian-defult.png" id="5_krjmu"]
-[ext_resource type="Texture2D" uid="uid://cfb6t3ayci35f" path="res://assets/world/survivalgame-terrian-water.png" id="6_mkml3"]
-[ext_resource type="Texture2D" uid="uid://dn3vid282trcg" path="res://assets/world/survivalgame-trees.png" id="7_1vwo5"]
+[ext_resource type="Texture2D" uid="uid://1qdntb8oypud" path="res://Assets/world/survivalgame-terrian-defult.png" id="5_krjmu"]
+[ext_resource type="Texture2D" uid="uid://cfb6t3ayci35f" path="res://Assets/world/survivalgame-terrian-water.png" id="6_mkml3"]
+[ext_resource type="Texture2D" uid="uid://dn3vid282trcg" path="res://Assets/world/survivalgame-trees.png" id="7_1vwo5"]
 [ext_resource type="PackedScene" uid="uid://uoh3koajukrf" path="res://game_ui.tscn" id="8_gb71t"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_drlxd"]
