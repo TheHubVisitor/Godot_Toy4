@@ -14,18 +14,15 @@ func _ready() -> void:
 
 func _on_timer_timeout() -> void:
 	$LengthTimer.paused = false
-	var is_spawning = true
+	is_spawning = true
 	var spawn = spawn_points[randi() % spawn_points.size()]
 	var enemy = enemy_scene.instantiate()
 	enemy.position = spawn.position
 	main.add_child(enemy)
 	EnemyCount.count += 1
 	
-	if $LengthTimer.timeout == true:
-		$Timer.paused = true
-		$LengthTimer.paused = true
-		await EnemyCount.count == 0
 
 # Make the spawner stop spawning after a certain period (scaling with wave)
 func _on_length_timer_timeout() -> void:
 	$LengthTimer.wait_time *= 1.5
+	print("Timeʻs UP!")

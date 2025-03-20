@@ -3,7 +3,6 @@ extends CharacterBody2D
 @onready var main = get_node("/root/Toy4")
 @onready var player = get_node("/root/Toy4/Player")
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
-@onready var Disappear = $Disappear
 @onready var Coll = $CollisionShape2D
 @onready var Sprite = $AnimatedSprite2D
 
@@ -18,7 +17,6 @@ var direction : Vector2
 
 func _ready():
 	alive = true
-	Disappear.paused = true
 	Sprite.visible = true
 
 func _physics_process(delta):
@@ -28,7 +26,7 @@ func _physics_process(delta):
 		direction = nav.get_next_path_position() - global_position
 		velocity = velocity.lerp(direction.normalized() * settings.ENEMY_SPEED, delta * settings.ENEMY_ACCEL)
 		move_and_slide()
-		
+		_on_animated_sprite_2d_animation_finished()
 		if velocity.x != 0:
 			$AnimatedSprite2D.flip_h = velocity.x < 0
 	else:
@@ -38,8 +36,10 @@ func die():
 	alive = false
 	$AnimatedSprite2D.stop()
 	$AnimatedSprite2D.animation = "Death"
+	print("AAAA")
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
-	Disappear.paused = false
+	EnemyCount.count -=1
+	_on_animated_sprite_2d_animation_finished()
 	if randf() <= settings.DROP_RATE:
 		drop_item()
 	#var explosion = explosion_scene.instantiate()
@@ -58,5 +58,6 @@ func _on_area_2d_body_entered(_body):
 	hit_player.emit()
 
 
-func _on_disappear_timeout() -> void:
-	Sprite.visible = false
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if $AnimatedSprite2D.animation == "Death":
+		queue_free()
