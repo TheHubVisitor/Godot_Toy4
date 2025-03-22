@@ -22,7 +22,13 @@ func _on_timer_timeout() -> void:
 	EnemyCount.count += 1
 	
 
-# Make the spawner stop spawning after a certain period (scaling with wave)
+# Make the spawner stop spawning after a certain period (scaling with level)
 func _on_length_timer_timeout() -> void:
 	$LengthTimer.wait_time *= 1.5
 	print("Timeʻs UP!")
+	$LengthTimer.paused = true
+
+func next_level():
+	if EnemyCount.count == 0:
+		$LengthTimer.paused = false
+	
