@@ -12,6 +12,7 @@ var collision_cooldown = false
 
 func _ready():
 	alive = true
+	$Damagebox.add_to_group("damageboxes")
 
 func _physics_process(delta):
 	if alive and settings.game_start:
@@ -33,7 +34,7 @@ func die():
 	alive = false
 	$AnimatedSprite2D.stop()
 	$AnimatedSprite2D.animation = "Death"
-	$Area2D/CollisionShape2D.set_deferred("disabled", true)
+	$Hitbox/CollisionShape2D.set_deferred("disabled", true)
 	if randf() <= settings.DROP_RATE:
 		drop_item()
 	var explosion = explosion_scene.instantiate()
@@ -48,7 +49,7 @@ func drop_item():
 	main.call_deferred("add_child", item)
 	item.add_to_group("items")
 
-func _on_area_2d_body_entered(body):
+func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("players"):
 		collision_cooldown = true
 		body.take_damage()

@@ -13,7 +13,7 @@ func _on_credits_button_pressed() -> void:
 	settings.game_start = false
 
 func _on_back_button_pressed() -> void:
-	print("high credits")
+	print("hide credits")
 	credit_screen.visible = false
 	title_screen.visible = true
 	settings.game_start = false
@@ -24,3 +24,6 @@ func _on_start_button_pressed() -> void:
 	title_screen.visible = false
 	settings.game_start = true
 	enemy_timer.start()
+
+func _on_restart_button_pressed() -> void:
+	_on_start_button_pressed()
