@@ -22,7 +22,7 @@ static var ENEMY_DAMAGE = 1
 static var NUMBER_ENEMIES = 10
 static var SPAWN_INTERVAL = 1.0
 
-static var DROP_RATE : float = 1
+static var DROP_RATE : float = 0.2
 
 static var total_lives : int
 
