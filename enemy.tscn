@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://boprq5n4ee778"]
+[gd_scene load_steps=15 format=3 uid="uid://boprq5n4ee778"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_kl1xh"]
 [ext_resource type="Texture2D" uid="uid://dgt30q1c0t68h" path="res://assets/enemies/goblin/goblin_dead_anim_f0.png" id="2_0cev8"]
@@ -56,12 +56,14 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_okc8d"]
-radius = 13.0
-height = 38.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_npapq"]
+radius = 9.05539
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7j83"]
 size = Vector2(40, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ss75c"]
+size = Vector2(33, 32)
 
 [node name="Goblin" type="CharacterBody2D"]
 collision_layer = 4
@@ -74,18 +76,26 @@ animation = &"Death"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 13)
-shape = SubResource("CapsuleShape2D_okc8d")
+position = Vector2(3, 12)
+shape = SubResource("CircleShape2D_npapq")
 debug_color = Color(0.915078, 0.261917, 0.325322, 0.42)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(4, 13.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(4, 14)
 shape = SubResource("RectangleShape2D_h7j83")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Damagebox" type="Area2D" parent="." groups=["damageboxes"]]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damagebox"]
+position = Vector2(4, 14)
+shape = SubResource("RectangleShape2D_ss75c")
+debug_color = Color(0.451492, 0.589912, 0.242705, 0.42)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

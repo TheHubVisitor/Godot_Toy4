@@ -3,6 +3,8 @@ extends Node2D
 @export var player_scene: PackedScene = preload("res://player.tscn")
 @export var bullet_scene: PackedScene = preload("res://bullet.tscn")
 
+var enemies_died : int = 0
+
 func _ready():
 	print("---MainScene Ready---")
 	start_wave(1)
@@ -28,6 +30,7 @@ func start_wave(wave_number: int = 1):
 	reset()
 
 func reset():
+	enemies_died = 0
 	get_tree().call_group("enemies", "queue_free")
 	get_tree().call_group("bullets", "queue_free")
 	get_tree().call_group("items", "queue_free")
@@ -37,12 +40,20 @@ func reset():
 	$HUD/WaveLabel.text = "WAVE: " + str(settings.current_wave)
 	$HUD/EnemiesLabel.text = "X " + str(settings.NUMBER_ENEMIES)
 
+func on_enemy_died():
+	enemies_died += 1
+	update_enemy_counter()
+
+func update_enemy_counter():
+	var remaining = settings.NUMBER_ENEMIES - enemies_died
+	$HUD/EnemiesLabel.text = "X " + str(max(remaining, 0))
+
 func restart_game():
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
 func spawn_clones(num_clones):
-	var radius = 100  # Increase distance between clones
+	var radius = 40  # Increase distance between clones
 	var angle_step = TAU / num_clones  # Spread clones evenly
 	var player = get_tree().get_first_node_in_group("players")
 
@@ -74,14 +85,19 @@ func clear_clones():
 			if p != first:
 				p.queue_free()
 
-func _on_player_shoot(pos, dir):
+func _on_player_shoot(pos, dir, shooter):
 	var bullet = bullet_scene.instantiate()
 	add_child(bullet)
 	bullet.position = pos
 	bullet.direction = dir.normalized()
 	bullet.add_to_group("bullets")
+	
+	if shooter and "record_shot" in shooter:
+			shooter.record_shot()
 
 func _process(_delta):
+	update_enemy_counter()
+	
 	if is_wave_completed():
 		if settings.current_wave == settings.NUMBER_WAVES:
 			$GameUI/GameOverLabel.text = "CONGRATULATIONS!"
@@ -95,7 +111,9 @@ func _process(_delta):
 			start_wave(settings.current_wave + 1)
 	else:
 		$HUD/LivesLabel.text = "X " + str(settings.total_lives)
-		if settings.total_lives <= 0:
+		var players = get_tree().get_nodes_in_group("players")
+		if settings.total_lives <= 0 or players.size() == 0:
+			settings.total_lives = 0
 			$GameUI/GameOverLabel.text = "GAME OVER!"
 			$GameUI/GameOverLabel.visible = true
 			$GameUI/WavesSurvivedLabel.text = "Waves Survived: " + str(settings.current_wave - 1)

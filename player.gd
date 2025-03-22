@@ -9,6 +9,7 @@ var screen_size : Vector2
 var health : int
 
 var boost_factor : int = 1
+var quick_shots_remaining = 0
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -20,7 +21,12 @@ func _ready():
 func reset():
 	can_shoot = true
 	speed = settings.PLAYER_SPEED * get_tile_speed() * boost_factor
+	quick_shots_remaining = 0
+
 	$ShotTimer.wait_time = settings.NORMAL_SHOT
+	$BoostIndicator.visible = false
+	$QuickFireIndicator.visible = false
+
 	separate_from_others()
 
 func separate_from_others():
@@ -47,7 +53,7 @@ func get_input():
 	#mouse clicks
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and can_shoot:
 		var dir = get_global_mouse_position() - position
-		shoot.emit(position, dir)
+		shoot.emit(position, dir, self)
 		can_shoot = false
 		$ShotTimer.start()
 
@@ -79,9 +85,14 @@ func _physics_process(delta):
 	
 	if settings.game_start:
 		#player movement
-		var playerInput = get_input()
+		var player_input = get_input()
 		speed = settings.PLAYER_SPEED * get_tile_speed() * boost_factor
-		velocity = lerp(velocity, playerInput * speed, delta)
+		
+		if player_input != Vector2.ZERO:
+			velocity = velocity.lerp(player_input * speed, settings.PLAYER_ACCEL * delta)
+		else:
+			velocity = velocity.lerp(Vector2.ZERO, settings.FRICTION * delta)
+
 		move_and_slide()
 		
 		separate_from_others()
@@ -113,18 +124,33 @@ func explode():
 	get_parent().add_child(explosion)
 
 func boost():
-	boost_factor = 4
+	$BoostIndicator.visible = true
+	boost_factor = 2
 	$BoostTimer.start()
 
 func quick_fire():
+	$QuickFireIndicator.visible = true
+	quick_shots_remaining = 5
 	$FastFireTimer.start()
 	$ShotTimer.wait_time = settings.FAST_SHOT
+
+func record_shot():
+	if quick_shots_remaining > 0:
+		quick_shots_remaining -= 1
+
+	if quick_shots_remaining > 0:
+		$ShotTimer.wait_time = settings.FAST_SHOT
+	else:
+		$ShotTimer.wait_time = settings.NORMAL_SHOT
+		$QuickFireIndicator.visible = false
 
 func _on_shot_timer_timeout():
 	can_shoot = true
 
 func _on_boost_timer_timeout():
 	boost_factor = 1
+	$BoostIndicator.visible = false
 
 func _on_fast_fire_timer_timeout():
 	$ShotTimer.wait_time = settings.NORMAL_SHOT
+	$QuickFireIndicator.visible = false
