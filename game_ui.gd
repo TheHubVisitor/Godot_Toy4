@@ -24,6 +24,11 @@ func _on_start_button_pressed() -> void:
 	title_screen.visible = false
 	settings.game_start = true
 	enemy_timer.start()
+	
+	await get_tree().create_timer(1).timeout
+	var players = get_tree().get_nodes_in_group("players")
+	for p in players:
+		p.can_shoot = true
 
 func _on_restart_button_pressed() -> void:
 	_on_start_button_pressed()

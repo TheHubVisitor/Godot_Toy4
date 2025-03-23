@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
+@onready var lives_label = get_node("/root/Toy4/HUD/LivesLabel")
+@export var can_shoot : bool = false
+
 signal shoot
 
-var can_shoot : bool
 var input : Vector2
 var speed : float
 var screen_size : Vector2
@@ -19,14 +21,16 @@ func _ready():
 	reset()
 
 func reset():
-	can_shoot = true
+	#can_shoot = true
 	speed = settings.PLAYER_SPEED * get_tile_speed() * boost_factor
 	quick_shots_remaining = 0
 
 	$ShotTimer.wait_time = settings.NORMAL_SHOT
 	$BoostIndicator.visible = false
 	$QuickFireIndicator.visible = false
-
+	$SFX/TakeDamage.stop()
+	$SFX/Die.stop()
+	
 	separate_from_others()
 
 func separate_from_others():
@@ -41,9 +45,13 @@ func separate_from_others():
 func take_damage():
 	health -= settings.ENEMY_DAMAGE
 	settings.total_lives -= settings.ENEMY_DAMAGE
+	$SFX/TakeDamage.play()
 	explode()
 	
-	if health <= 0:
+	if health == 0:
+		can_shoot = false
+		$SFX/Die.play()
+		await $SFX/Die.finished
 		queue_free()
 
 func get_input():
@@ -126,13 +134,20 @@ func explode():
 func boost():
 	$BoostIndicator.visible = true
 	boost_factor = 2
+	$SFX/Boost.play()
 	$BoostTimer.start()
 
 func quick_fire():
 	$QuickFireIndicator.visible = true
 	quick_shots_remaining = 5
+	$SFX/QuickFire.play()
 	$FastFireTimer.start()
 	$ShotTimer.wait_time = settings.FAST_SHOT
+
+func extra_life():
+	settings.PLAYER_HEALTH += 1
+	lives_label.text = "X " + str(settings.PLAYER_HEALTH)
+	$SFX/Life.play()
 
 func record_shot():
 	if quick_shots_remaining > 0:

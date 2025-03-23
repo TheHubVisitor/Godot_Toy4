@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b5ac8l4m8jqwr"]
+[gd_scene load_steps=35 format=3 uid="uid://b5ac8l4m8jqwr"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_twp5d"]
 [ext_resource type="Texture2D" uid="uid://c0kymkuaejst" path="res://assets/player/player_E_0.png" id="2_bvxfs"]
@@ -27,6 +27,11 @@
 [ext_resource type="Texture2D" uid="uid://dbex6rfsjce15" path="res://assets/player/player_NE_2.png" id="25_16cjw"]
 [ext_resource type="Texture2D" uid="uid://b15iaf4ely7g4" path="res://assets/boost.png" id="26_mmb1w"]
 [ext_resource type="Texture2D" uid="uid://dm47wqhqh6jru" path="res://assets/quick_fire.png" id="27_tl0im"]
+[ext_resource type="AudioStream" uid="uid://ccsmpm80u0gf0" path="res://assets/sfx/ouch.mp3" id="28_26fae"]
+[ext_resource type="AudioStream" uid="uid://cxqu8p14yxsvy" path="res://assets/sfx/die.mp3" id="29_2hiec"]
+[ext_resource type="AudioStream" uid="uid://b6lkkohnieaqd" path="res://assets/sfx/boost.mp3" id="30_4eknp"]
+[ext_resource type="AudioStream" uid="uid://dan14a6mxht0" path="res://assets/sfx/life.mp3" id="31_drq6c"]
+[ext_resource type="AudioStream" uid="uid://pxoqof2x7boj" path="res://assets/sfx/quick_shots.mp3" id="32_ldul2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sdrkv"]
 resource_local_to_scene = true
@@ -205,6 +210,26 @@ visible = false
 position = Vector2(16, -49)
 scale = Vector2(0.0503906, 0.0614583)
 texture = ExtResource("27_tl0im")
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="TakeDamage" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("28_26fae")
+volume_db = -10.0
+
+[node name="Die" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("29_2hiec")
+playback_type = 1
+
+[node name="Boost" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("30_4eknp")
+
+[node name="Life" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("31_drq6c")
+volume_db = -5.0
+
+[node name="QuickFire" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("32_ldul2")
 
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
 [connection signal="timeout" from="BoostTimer" to="." method="_on_boost_timer_timeout"]
