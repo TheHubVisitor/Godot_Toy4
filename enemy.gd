@@ -34,6 +34,7 @@ func die():
 	alive = false
 	$AnimatedSprite2D.stop()
 	$AnimatedSprite2D.animation = "Death"
+	$Die.play()
 	$Hitbox/CollisionShape2D.set_deferred("disabled", true)
 	if randf() <= settings.DROP_RATE:
 		drop_item()

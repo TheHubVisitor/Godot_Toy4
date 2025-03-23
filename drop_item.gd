@@ -1,8 +1,5 @@
 extends Area2D
 
-@onready var main = get_node("/root/Toy4")
-@onready var lives_label = get_node("/root/Toy4/HUD/LivesLabel")
-
 var item_type : int # 0: coffee, 1: health, 2: gun
 
 var coffee_box = preload("res://assets/items/coffee_box.png")
@@ -20,8 +17,7 @@ func _on_body_entered(body):
 			body.boost()
 		# health
 		elif item_type == 1:
-			settings.PLAYER_HEALTH += 1
-			lives_label.text = "X " + str(settings.PLAYER_HEALTH)
+			body.extra_life()
 		# gun
 		elif item_type == 2:
 			body.quick_fire()
