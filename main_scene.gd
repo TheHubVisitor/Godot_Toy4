@@ -9,6 +9,10 @@ func _ready():
 	print("---MainScene Ready---")
 	start_wave(1)
 	$GameUI/RestartButton.pressed.connect(restart_game)
+	
+	if settings.auto_start_on_reload:
+		settings.auto_start_on_reload = false
+		$GameUI._on_start_button_pressed()
 
 func start_wave(wave_number: int = 1):
 	print("Starting Wave:", wave_number)
@@ -49,6 +53,7 @@ func update_enemy_counter():
 	$HUD/EnemiesLabel.text = "X " + str(max(remaining, 0))
 
 func restart_game():
+	settings.auto_start_on_reload = true
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 

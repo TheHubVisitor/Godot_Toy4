@@ -2,6 +2,7 @@ extends Node
 class_name settings
 
 static var game_start = false
+static var auto_start_on_reload = false
 
 static var NUMBER_WAVES = 5
 static var current_wave = 1

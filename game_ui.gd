@@ -31,6 +31,3 @@ func _on_start_button_pressed() -> void:
 	var players = get_tree().get_nodes_in_group("players")
 	for p in players:
 		p.can_shoot = true
-
-func _on_restart_button_pressed() -> void:
-	_on_start_button_pressed()
