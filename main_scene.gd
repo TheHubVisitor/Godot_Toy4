@@ -87,6 +87,7 @@ func clear_clones():
 
 func _on_player_shoot(pos, dir, shooter):
 	var bullet = bullet_scene.instantiate()
+	$Shoot.play()
 	add_child(bullet)
 	bullet.position = pos
 	bullet.direction = dir.normalized()
@@ -114,6 +115,7 @@ func _process(_delta):
 		var players = get_tree().get_nodes_in_group("players")
 		if settings.total_lives <= 0 or players.size() == 0:
 			settings.total_lives = 0
+			await get_tree().create_timer(1).timeout
 			$GameUI/GameOverLabel.text = "GAME OVER!"
 			$GameUI/GameOverLabel.visible = true
 			$GameUI/WavesSurvivedLabel.text = "Waves Survived: " + str(settings.current_wave - 1)

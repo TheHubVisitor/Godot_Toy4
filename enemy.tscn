@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://boprq5n4ee778"]
+[gd_scene load_steps=16 format=3 uid="uid://boprq5n4ee778"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_kl1xh"]
 [ext_resource type="Texture2D" uid="uid://dgt30q1c0t68h" path="res://assets/enemies/goblin/goblin_dead_anim_f0.png" id="2_0cev8"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dasobk16s1fun" path="res://assets/enemies/goblin/goblin_run_anim_f1.png" id="8_iw25o"]
 [ext_resource type="Texture2D" uid="uid://dbslbq56e7cnk" path="res://assets/enemies/goblin/goblin_run_anim_f2.png" id="9_y37us"]
 [ext_resource type="Texture2D" uid="uid://hdm4jfrk5gqv" path="res://assets/enemies/goblin/goblin_run_anim_f3.png" id="10_j43o1"]
+[ext_resource type="AudioStream" uid="uid://57qhjuqf0nom" path="res://assets/sfx/animal_die.mp3" id="11_0u5iq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3hvmd"]
 animations = [{
@@ -97,5 +98,9 @@ collision_layer = 4
 position = Vector2(4, 14)
 shape = SubResource("RectangleShape2D_ss75c")
 debug_color = Color(0.451492, 0.589912, 0.242705, 0.42)
+
+[node name="Die" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_0u5iq")
+playback_type = 1
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
