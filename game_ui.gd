@@ -20,6 +20,7 @@ func _on_back_button_pressed() -> void:
 
 func _on_start_button_pressed() -> void:
 	print("start game")
+	$"../BGMusic".play()
 	$Panel.visible = false
 	title_screen.visible = false
 	settings.game_start = true
