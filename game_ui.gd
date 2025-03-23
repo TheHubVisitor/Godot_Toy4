@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+@onready var bg_music = $"../BGMusic"
 @onready var restart = $RestartButton
 @onready var title_screen = $TitleScreen
 @onready var credit_screen = $CreditsScreen
@@ -20,11 +21,11 @@ func _on_back_button_pressed() -> void:
 
 func _on_start_button_pressed() -> void:
 	print("start game")
-	$"../BGMusic".play()
 	$Panel.visible = false
 	title_screen.visible = false
 	settings.game_start = true
 	enemy_timer.start()
+	bg_music.play()
 	
 	await get_tree().create_timer(1).timeout
 	var players = get_tree().get_nodes_in_group("players")
